@@ -8,12 +8,12 @@ def prediction(list, numberToPredict):
     #  we'll do some weird multiplication
 
     model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[1])])
-    model.compile(optimizer='sgd', loss='mean_squared_error')
+    model.compile(optimizer='adam', loss='mean_squared_error')
 
-    x = np.array(list[0:4], dtype=float)
-    y = np.array(list[5:-1], dtype=float)
+    x = np.array(list[0:2], dtype=float)
+    y = np.array(list[3:-1], dtype=float)
 
-    model.fit(x, y, epochs=500, verbose=0)
+    model.fit(x, y, epochs=2000, verbose=0)
     predicted_val = str(model.predict([numberToPredict])[0][0])
 
     print("\nList Data:", list)
