@@ -5,11 +5,11 @@ import ml_worker
 app = Flask(__name__)
 
 test_list = [10.74,10.70,10.52,10.38,10.54,10.99]
-predicted_val = ml_worker.prediction(test_list, test_list[-1])
 
 # response for main page requests
 @app.route('/')
 def main_page():
+    predicted_val = ml_worker.prediction(test_list, test_list[-1])
     return predicted_val
 
 # run it!
